@@ -663,3 +663,8 @@ class USStates(models.Model):
         # db_column='StateRegion',
         max_length=50
     )
+
+    class Meta:
+        db_table = 'us_states'
+        verbose_name = "us_state"
+        verbose_name_plural = "us_states"
