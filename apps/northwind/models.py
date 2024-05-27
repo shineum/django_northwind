@@ -213,7 +213,7 @@ class CustomerDemographics(models.Model):
     )
 
     class Meta:
-        db_table = 'customerdemographics'
+        db_table = 'customer_demographics'
         verbose_name = "customerdemographic"
         verbose_name_plural = "customerdemographics"
 
@@ -640,3 +640,26 @@ class OrderDetails(models.Model):
         db_table = 'order_details'
         verbose_name = "order_detail"
         verbose_name_plural = "order_details"
+
+
+class USStates(models.Model):
+    state_id = models.SmallIntegerField(
+        _('State id'),
+        # db_column='StateID',
+        primary_key=True
+    )
+    state_name = models.CharField(
+        _('State Name'),
+        # db_column='StateName',
+        max_length=100
+    )
+    state_abbr = models.CharField(
+        _('State Abbreviation'),
+        # db_column='StateAbbreviation',
+        max_length=2
+    )
+    state_region = models.CharField(
+        _('State Region'),
+        # db_column='StateRegion',
+        max_length=50
+    )
