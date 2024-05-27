@@ -33,6 +33,7 @@ class Territories(models.Model):
     region_id = models.ForeignKey(
         Region,
         # db_column='RegionID',
+        db_column='region_id',
         on_delete=models.CASCADE
     )
 
@@ -151,6 +152,7 @@ class Employees(models.Model):
         null=True,
         blank=True,
         # db_column='ReportsTo',
+        db_column='reports_to',
         on_delete=models.PROTECT,
     )
     photo_path = models.CharField(
@@ -439,6 +441,7 @@ class Products(models.Model):
     supplier_id = models.ForeignKey(
         Suppliers,
         # db_column='SupplierID',
+        db_column='supplier_id',
         on_delete=models.CASCADE,
         blank=True,
         null=True,
@@ -447,6 +450,7 @@ class Products(models.Model):
     category_id = models.ForeignKey(
         Categories,
         # db_column='CategoryID',
+        db_column='category_id',
         db_index=True,
         blank=True,
         null=True,
@@ -507,6 +511,7 @@ class Orders(models.Model):
         blank=True,
         null=True,
         # db_column='CustomerID',
+        db_column='customer_id',
         on_delete=models.CASCADE,
         db_index=True
     )
@@ -515,6 +520,7 @@ class Orders(models.Model):
         blank=True,
         null=True,
         # db_column='EmployeeID',
+        db_column='employee_id',
         on_delete=models.CASCADE,
         db_index=True
     )
@@ -614,11 +620,13 @@ class OrderDetails(models.Model):
     order_id = models.ForeignKey(
         Orders,
         # db_column='OrderID',
+        db_column='order_id',
         on_delete=models.CASCADE
     )
     product_id = models.ForeignKey(
         Products,
         # db_column='ProductID',
+        db_column='product_id',
         on_delete=models.CASCADE
     )
     unit_price = models.DecimalField(
