@@ -29,7 +29,7 @@ call .\venv\Scripts\activate.bat
 
 ### 4. Install modules
 ```bash
-(.venv) pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ### 5. Database setup (optional)
@@ -43,13 +43,19 @@ Change an environment file (.env) as your environment.
 
 ### 6. Migrate database
 ```bash
-(.venv) python manage.py migrate
+python manage.py migrate
 ```
 
 
 ### 7. Load data
 ```bash
-(.venv) python manage.py loaddata apps/northwind/fixtures/northwind.json
+python manage.py loaddata apps/northwind/fixtures/northwind.json
+```
+
+
+### 8. Run server
+```bash
+python manage.py runserver
 ```
 
 
