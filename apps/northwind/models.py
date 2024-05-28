@@ -17,6 +17,9 @@ class Region(models.Model):
     class Meta:
         db_table = 'region'
 
+    def __str__(self):
+        return f"{self.region_description}"
+
 
 class Territories(models.Model):
     territory_id = models.CharField(
@@ -41,6 +44,9 @@ class Territories(models.Model):
         db_table = 'territories'
         verbose_name = "territory"
         verbose_name_plural = "territories"
+
+    def __str__(self):
+        return f"{self.territory_description}"
 
 
 class Employees(models.Model):
