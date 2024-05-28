@@ -71,6 +71,21 @@ http://localhost:8000/admin
 ```
 
 
+## REST APIs
+
+### 1. API base
+```
+http://localhost:8000/api/v1/
+```
+
+### 2. OpenAPI urls
+```
+http://localhost:8000/api/v1/swagger/
+http://localhost:8000/api/v1/swagger.json/
+http://localhost:8000/api/v1/redoc/
+```
+
+
 ## References
 https://github.com/samgca/django_northwind
 https://github.com/pthom/northwind_psql
