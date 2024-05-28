@@ -53,9 +53,21 @@ python manage.py loaddata apps/northwind/fixtures/northwind.json
 ```
 
 
-### 8. Run server
+### 8. Create admin user
+```bash
+python manage.py createsuperuser
+```
+
+
+### 9. Run server
 ```bash
 python manage.py runserver
+```
+
+
+### 10. Login to a website as an admin
+```bash
+http://localhost:8000/admin
 ```
 
 
