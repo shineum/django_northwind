@@ -3,7 +3,7 @@ from . import models
 
 # Register your models here.
 
-class __AdminReadOnlyTabularInline(admin.TabularInline):
+class _AdminReadOnlyTabularInline(admin.TabularInline):
     extra = 0
 
     def has_add_permission(self, request, obj=None):
@@ -16,11 +16,11 @@ class __AdminReadOnlyTabularInline(admin.TabularInline):
         return False
         
 
-class TerritoriesInline(__AdminReadOnlyTabularInline):
+class TerritoriesInline(_AdminReadOnlyTabularInline):
     model = models.Territories
 
 
-class EmployeesInline(__AdminReadOnlyTabularInline):
+class EmployeesInline(_AdminReadOnlyTabularInline):
     model = models.Employees    
     fields = ('employee_id', '__custom_name__', 'title')
     readonly_fields = ('__custom_name__', )
@@ -30,17 +30,17 @@ class EmployeesInline(__AdminReadOnlyTabularInline):
     __custom_name__.short_description = "name"
 
 
-class ProductsInline(__AdminReadOnlyTabularInline):
+class ProductsInline(_AdminReadOnlyTabularInline):
     model = models.Products
     fields = ('product_id', 'product_name', 'unit_price', 'units_on_order')
 
 
-class OrdersInline(__AdminReadOnlyTabularInline):
+class OrdersInline(_AdminReadOnlyTabularInline):
     model = models.Orders
     fields = ('order_id', 'customer', 'order_date')
 
 
-class OrderDetailsInline(__AdminReadOnlyTabularInline):
+class OrderDetailsInline(_AdminReadOnlyTabularInline):
     model = models.OrderDetails
     fields = ('order_id', 'product_id', 'quantity')
 
@@ -90,12 +90,16 @@ class SuppliersAdmin(admin.ModelAdmin):
 class ProductsAdmin(admin.ModelAdmin):
     list_display = ["product_id", "product_name", "supplier_id", "category_id", "units_in_stock", "discontinued"]
     inlines = [OrderDetailsInline]
+    list_filter = ["supplier_id", "category_id"]
+    search_fields = ["product_name", "supplier_id__company_name", "category_id__category_name"]
 
 
 @admin.register(models.Orders)
 class OrdersAdmin(admin.ModelAdmin):
     list_display = ["order_id", "customer", "employee", "order_date", "shipped_date", "ship_via", "ship_country"]
     inlines = [OrderDetailsInline]
+    list_filter = ["customer", "employee", "order_date", "ship_via", "ship_country"]
+    search_fields = ["order_id", "customer__customer_id", "customer__company_name", "ship_via__shipper_id", "ship_via__company_name"]
 
 
 @admin.register(models.USStates)
