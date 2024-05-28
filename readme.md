@@ -87,5 +87,5 @@ http://localhost:8000/api/v1/redoc/
 
 
 ## References
-https://github.com/samgca/django_northwind
+https://github.com/samgca/django_northwind  
 https://github.com/pthom/northwind_psql
