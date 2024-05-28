@@ -677,6 +677,9 @@ class OrderDetails(models.Model):
         verbose_name = "order_detail"
         verbose_name_plural = "order_details"
 
+    def __str__(self):
+        return f"{self.order_id}"
+
 
 class USStates(models.Model):
     state_id = models.SmallIntegerField(
