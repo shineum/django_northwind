@@ -521,6 +521,9 @@ class Products(models.Model):
         verbose_name = "product"
         verbose_name_plural = "products"
 
+    def __str__(self):
+        return f"{self.product_name}"
+
 
 class Orders(models.Model):
     order_id = models.AutoField(
@@ -637,6 +640,9 @@ class Orders(models.Model):
         verbose_name = "order"
         verbose_name_plural = "orders"
 
+    def __str__(self):
+        return f"{self.order_id} - {self.customer}"
+
 
 class OrderDetails(models.Model):
     order_id = models.ForeignKey(
@@ -698,3 +704,6 @@ class USStates(models.Model):
         db_table = 'us_states'
         verbose_name = "us_state"
         verbose_name_plural = "us_states"
+
+    def __str__(self):
+        return f"{self.state_name}"
