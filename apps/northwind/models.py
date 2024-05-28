@@ -175,6 +175,10 @@ class Employees(models.Model):
         verbose_name_plural = "employees"
 
 
+    def __str__(self):
+        return f"{self.title_of_courtesy} {self.first_name} {self.last_name}"
+
+
 class Shippers(models.Model):
     shipper_id = models.AutoField(
         _('Shipper ID'),
@@ -198,6 +202,9 @@ class Shippers(models.Model):
         db_table = 'shippers'
         verbose_name = "shipper"
         verbose_name_plural = "shippers"
+
+    def __str__(self):
+        return f"{self.company_name}"
 
 
 class CustomerDemographics(models.Model):
@@ -307,6 +314,9 @@ class Customers(models.Model):
         verbose_name = "customer"
         verbose_name_plural = "customers"
 
+    def __str__(self):
+        return f"{self.customer_id}: {self.company_name}"
+    
 
 class Categories(models.Model):
     category_id = models.AutoField(
@@ -338,6 +348,9 @@ class Categories(models.Model):
         verbose_name = "category"
         verbose_name_plural = "categories"
 
+    def __str__(self):
+        return f"{self.category_name}"
+    
 
 class Suppliers(models.Model):
     supplier_id = models.AutoField(
@@ -424,6 +437,9 @@ class Suppliers(models.Model):
         db_table = 'suppliers'
         verbose_name = "supplier"
         verbose_name_plural = "suppliers"
+
+    def __str__(self):
+        return f"{self.company_name}"
 
 
 class Products(models.Model):
