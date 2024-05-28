@@ -5,7 +5,7 @@ The Northwind database is a sample database that was originally created by Micro
 
 [Reference URL](https://docs.yugabyte.com/preview/sample-data/northwind/ 'yugabyte.com')
 
-
+  
 ## How to use
 
 ### 1. Clone source code
@@ -70,7 +70,7 @@ python manage.py runserver
 http://localhost:8000/admin
 ```
 
-
+  
 ## REST APIs
 
 ### 1. API base
