@@ -5,59 +5,49 @@ from . import models
 
 @admin.register(models.Region)
 class RegionAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["region_id", "region_description"]
 
 
 @admin.register(models.Territories)
 class TerritoriesAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["territory_id", "territory_description"]
 
 
 @admin.register(models.Employees)
 class EmployeesAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["employee_id", "__str__", "title", "reports_to"]
 
 
 @admin.register(models.Shippers)
 class ShippersAdmin(admin.ModelAdmin):
-    pass
-
-
-@admin.register(models.CustomerDemographics)
-class CustomerDemographicsAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["company_name", "phone"]
 
 
 @admin.register(models.Customers)
 class CustomersAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["customer_id", "company_name", "country", "contact_title", "contact_name"]
 
 
 @admin.register(models.Categories)
 class CategoriesAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["category_id", "category_name", "description"]
 
 
 @admin.register(models.Suppliers)
 class SuppliersAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["supplier_id", "company_name", "country", "contact_title", "contact_name"]
 
 
 @admin.register(models.Products)
 class ProductsAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["product_id", "product_name", "supplier_id", "category_id", "units_in_stock", "discontinued"]
 
 
 @admin.register(models.Orders)
 class OrdersAdmin(admin.ModelAdmin):
-    pass
-
-
-@admin.register(models.OrderDetails)
-class OrderDetailsAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["order_id", "customer", "employee", "order_date", "shipped_date", "ship_via", "ship_country"]
 
 
 @admin.register(models.USStates)
 class USStatesAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["state_id", "state_name", "state_abbr", "state_region"]
